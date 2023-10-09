@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path: 'home',
+    path: 'inicio',
     component:InicioComponent
 
   },
