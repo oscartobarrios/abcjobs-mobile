@@ -7,17 +7,21 @@ import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './pages/home/home.component';
 import { PruebaComponent } from './pages/prueba/prueba.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { ListarPruebasComponent } from './pages/listar-pruebas/listar-pruebas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PruebaComponent,
-    InicioComponent
+    InicioComponent,
+    ListarPruebasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     IonicModule.forRoot()
   ],
   providers: [],

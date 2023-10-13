@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Aspirante</ion-card-title>
+      <ion-card-subtitle>Pruebas Pendientes</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let c of mispruebas">
+        <ion-item  routerLink="/prueba/{{c.credits}}">
+          <ion-thumbnail slot="start">
+            {{c.name}}
+
+          </ion-thumbnail>
+          <ion-label><dd>{{c.professor}}</dd></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
