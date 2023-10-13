@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('nueva-app');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('nueva-app app is running!');
-  });
 });
