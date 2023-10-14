@@ -1,0 +1,10 @@
+{
+  "defaultProject": "nueva-app",
+  "projects": {
+    "nueva-app": {
+      "name": "nueva-app",
+      "integrations": {},
+      "type": "angular"
+    }
+  }
+}
