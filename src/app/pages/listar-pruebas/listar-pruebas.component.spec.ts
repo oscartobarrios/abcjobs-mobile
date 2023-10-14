@@ -29,13 +29,13 @@ describe('ListarPruebasComponent', () => {
     fixture = TestBed.createComponent(ListarPruebasComponent);
     component = fixture.componentInstance;
     for(let i = 0; i < 10; i++) {
-      const book = new Prueba(
-
+      const miprueba = new Prueba(
         faker.lorem.sentence(),
         faker.lorem.sentence(),
-        faker.number.int()
+        faker.lorem.sentence(),
+        faker.lorem.sentence()
       );
-      component.mispruebas.push(book);
+      component.mispruebas.push(miprueba);
     }
 
 
