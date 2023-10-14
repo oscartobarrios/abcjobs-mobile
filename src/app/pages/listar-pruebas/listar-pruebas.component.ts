@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Prueba } from '../prueba/prueba';
 import { PruebasService } from './pruebas.service';
-
+import { Pregunta } from '../prueba/pregunta';
 @Component({
   selector: 'app-listar-pruebas',
   templateUrl: './listar-pruebas.component.html',
@@ -17,12 +17,11 @@ export class ListarPruebasComponent implements OnInit {
 
 
   getPruebasList(): Array<Prueba> {
+
     const datosPrueba = [
-      new Prueba("Ingeniería de software", "Martin Fowler", 4),
-      new Prueba("Fútbol 1", "Freddy Rincón", 2),
-      new Prueba("Algoritmos", "Dennis Ritchie", 2),
-      new Prueba("Estructuras de datos", "Yesid Donoso", 2),
-      new Prueba("Fútbol 2", "James Rodríguez", 6),
+
+      new Prueba("5352686694170624", "Java", "Developer","Technical")
+
      ];
     return datosPrueba;
   }

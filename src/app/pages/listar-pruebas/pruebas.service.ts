@@ -8,7 +8,7 @@ import { Prueba } from '../prueba/prueba';
   providedIn: 'root'
 })
 export class PruebasService {
-  private apiUrl = environment.baseUrl + 'courses.json';
+  private apiUrl = environment.urlPruebas;
 
 
   constructor(private http: HttpClient) { }
