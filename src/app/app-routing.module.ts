@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { ExamenComponent } from './examen/components/examenes/examen.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PruebaComponent } from './pages/prueba/prueba.component';
-import { ListarPruebasComponent } from './pages/listar-pruebas/listar-pruebas.component';
+import { ListarPruebasComponent } from './examen/components/listar-pruebas/listar-pruebas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'home',
     pathMatch:'full'
   },
   {
@@ -25,8 +25,12 @@ const routes: Routes = [
   {
     path: 'home',
     component:HomeComponent
-
+  },
+  {
+    path: 'examen/:id',
+    component:ExamenComponent
   }
+
 
 ];
 

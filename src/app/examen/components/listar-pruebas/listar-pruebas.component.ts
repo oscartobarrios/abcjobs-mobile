@@ -14,8 +14,6 @@ export class ListarPruebasComponent implements OnInit {
   //constructor() { }
   constructor(private pruebasService: PruebasService) { }
 
-
-
   getPruebasList(): Array<Prueba> {
 
     const datosPrueba = [
