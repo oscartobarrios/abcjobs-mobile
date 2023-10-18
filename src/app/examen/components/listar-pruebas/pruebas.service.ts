@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment'
-import { Prueba } from '../prueba/prueba';
+import { environment } from 'src/environments/environment';
+import { Examen, Prueba } from '../prueba/prueba';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class PruebasService {
 
   constructor(private http: HttpClient) { }
 
-  public getPruebas(): Observable<Prueba[]> {
+  public getPruebas(): Observable<Examen[]> {
     console.log(this.apiUrl)
-    return this.http.get<Prueba[]>(this.apiUrl);
+    return this.http.get<Examen[]>(this.apiUrl);
   }
 
 }

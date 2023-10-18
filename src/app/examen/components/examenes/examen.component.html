@@ -1,0 +1,41 @@
+<!-- buena -->
+<h3>Pregunta {{pregunta+1}} de {{totalPreguntas}}</h3>
+<div class="form-container">
+  <h1>{{traePregunta()}}</h1>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+
+    <div>
+      <label>Seleccione una de las siguientes respuestas</label>
+      <mat-radio-group name="option" [(ngModel)]="selectedOption" required class="vertical-radio-group">
+        <mat-radio-button *ngFor="let option of misrtastexto" [value]="option">
+          <span class="ion-text-wrap"><h2>{{ option }}</h2></span>
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+     <!-- Validation message for required field -->
+     <div class="validation-message" *ngIf="isSubmitted && !form.controls['option'].valid">
+      Para poder continuar seleccione una opcion
+    </div>
+
+
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button  (click)="finalizar()"  *ngIf="pregunta+1 >= totalPreguntas" >Finalizar</ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button type="submit" [disabled]="selectedOption === ''" *ngIf="pregunta+1 < totalPreguntas" >Siguiente</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+
+  </form>
+</div>
+
+
+
+
+
+
+

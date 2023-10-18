@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Prueba } from '../prueba/prueba';
+import { Prueba, Respuesta } from '../prueba/prueba';
 import { PruebasService } from './pruebas.service';
-import { Pregunta } from '../prueba/pregunta';
+import { Examen } from '../prueba/prueba';
+
+
+
 @Component({
   selector: 'app-listar-pruebas',
   templateUrl: './listar-pruebas.component.html',
   styleUrls: ['./listar-pruebas.component.css']
 })
 export class ListarPruebasComponent implements OnInit {
-  mispruebas: Array<Prueba> = [];
-  private courses1: Array<Prueba> = [];
 
+  public misexamenes :  Array<Examen> = [];
+  examenSeleccionado = false;
+  codExamen = 0;
   //constructor() { }
-  constructor(private pruebasService: PruebasService) { }
-
-
+  constructor(private pruebasService: PruebasService) {
+    this.getPruebasWs()
+  }
 
   getPruebasList(): Array<Prueba> {
 
@@ -28,14 +32,31 @@ export class ListarPruebasComponent implements OnInit {
 
   getPruebasWs() {
     this.pruebasService.getPruebas().subscribe(datos => {
-      this.mispruebas = datos;
-      console.log(this.mispruebas)
+      //this.mispruebas = datos;
+      this.misexamenes = datos;
+      console.log(this.misexamenes)
+
     });
   }
 
   ngOnInit() {
     //this.mispruebas = this.getPruebasList();
-    this.getPruebasWs();
+    //this.getPruebasWs();
+
+
   }
+
+  seleccionaExamen(examen:number){
+    this.examenSeleccionado = true;
+    this.codExamen = examen
+  }
+
+  examenFinalizado(rta:Respuesta[]){
+    console.log(rta)
+    this.examenSeleccionado = false;
+    this.codExamen = 0
+
+  }
+
 
 }

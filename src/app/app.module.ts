@@ -5,24 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './pages/home/home.component';
-import { PruebaComponent } from './pages/prueba/prueba.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
-import { ListarPruebasComponent } from './pages/listar-pruebas/listar-pruebas.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { ExamenModule } from './examen/examen.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PruebaComponent,
-    InicioComponent,
-    ListarPruebasComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    IonicModule.forRoot()
+    ExamenModule,
+    IonicModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
