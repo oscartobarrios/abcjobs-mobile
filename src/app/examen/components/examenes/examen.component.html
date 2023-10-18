@@ -1,82 +1,41 @@
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Menu Principal</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-list>
-      <ion-item routerLink="/home">Inicio</ion-item>
-      <ion-item routerLink="/prueba">Procesos</ion-item>
-      <ion-item routerLink="/hv">Hoja de vida</ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>ABC Jobs </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- buena -->
+<h3>Pregunta {{pregunta+1}} de {{totalPreguntas}}</h3>
+<div class="form-container">
+  <h1>{{traePregunta()}}</h1>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
 
-  <ion-content>
+    <div>
+      <label>Seleccione una de las siguientes respuestas</label>
+      <mat-radio-group name="option" [(ngModel)]="selectedOption" required class="vertical-radio-group">
+        <mat-radio-button *ngFor="let option of misrtastexto" [value]="option">
+          <span class="ion-text-wrap"><h2>{{ option }}</h2></span>
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
 
+     <!-- Validation message for required field -->
+     <div class="validation-message" *ngIf="isSubmitted && !form.controls['option'].valid">
+      Para poder continuar seleccione una opcion
+    </div>
 
-
-
-    <ion-list>
-      <ion-list-header>
-        <ion-text color="tertiary">
-          <h1>What is the difference between a `list.append()` and a `list.extend()` method in Python?</h1>
-        </ion-text>
-      </ion-list-header>
-
-      <ion-radio-group>
-        <ion-item value="start">
-          <ion-radio value="start"> </ion-radio>
-          <ion-text color="medium" value="start">
-            <h3>`list.append()` takes a single element as an argument and adds it to the end of the list, while `list.extend()` takes an iterable as an argument and adds all of the elements in the iterable to the end of the list.</h3>
-          </ion-text>
-        </ion-item>
-
-        <ion-item value="start">
-          <ion-radio value="start"> </ion-radio>
-          <ion-text color="medium" value="start">
-            <h3>`list.append()` takes a single elet.</h3>
-          </ion-text>
-        </ion-item>
-
-        <ion-item>
-          <ion-radio value="start"> </ion-radio>
-          <ion-text color="medium">
-            <h3>`list.append()` takes a single element as an argument and adds it to the end of the list, while `list.extend()` takes an iterable as an argument and adds all of the elements in the iterable to the end of the list.</h3>
-          </ion-text>
-        </ion-item>
-
-        <ion-item>
-          <ion-radio value="d"> </ion-radio>
-          <ion-text color="medium">
-            <h3>`list.append()` takes a single element as an argument and adds it to the end of the list, while `list.extend()` takes an iterable as an argument and adds all of the elements in the iterable to the end of the list.</h3>
-          </ion-text>
-        </ion-item>
-
-
-      </ion-radio-group>
-    </ion-list>
 
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-button>Finalizar</ion-button>
+        <ion-button  (click)="finalizar()"  *ngIf="pregunta+1 >= totalPreguntas" >Finalizar</ion-button>
       </ion-buttons>
 
       <ion-buttons slot="end">
-        <ion-button>Siguiente</ion-button>
+        <ion-button type="submit" [disabled]="selectedOption === ''" *ngIf="pregunta+1 < totalPreguntas" >Siguiente</ion-button>
       </ion-buttons>
     </ion-toolbar>
 
 
-  </ion-content>
+  </form>
 </div>
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ExamenModule } from './examen/examen.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ExamenModule } from './examen/examen.module';
     AppRoutingModule,
     HttpClientModule,
     ExamenModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
