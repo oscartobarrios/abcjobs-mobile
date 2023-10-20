@@ -30,17 +30,11 @@ export class ExamenComponent  {
 
   traePregunta (){
     let retorno: Question[] ;
-    if ( this.miexamen !== undefined) {
-        const { questions:preguntas } =  this.miexamen
-        this.totalPreguntas = preguntas.length;
-        const { description:descripcion } = preguntas[this.pregunta]
-        this.traeRtas();
-        return descripcion
-    }
-    else{
-      return "FIN del examen"
-    }
-
+    const { questions:preguntas } =  this.miexamen
+    this.totalPreguntas = preguntas.length;
+    const { description:descripcion } = preguntas[this.pregunta]
+    this.traeRtas();
+    return descripcion
   }
 
   traeRtas (){

@@ -1,30 +1,51 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ExamenComponent } from './examen.component';
-import {Component,ViewChild} from "@angular/core";
-import { Examen } from '../prueba/prueba';
+import { Examen, Respuesta } from '../prueba/prueba';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
+import { PruebasService } from '../listar-pruebas/pruebas.service';
 
-
-describe('ExamenComponent', () => {
-  let testHostComponent: TestHostComponent;
-  let testHostFixture: ComponentFixture<TestHostComponent>;
-
-
+describe('EXAMEN', () => {
+  let component: ExamenComponent;
+  let fixture: ComponentFixture<ExamenComponent>;
+  let pruebasService: PruebasService;
+  let misexamenes: Examen[];
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ ExamenComponent ,TestHostComponent ]
+      declarations: [ ExamenComponent ],
+      imports: [ RouterTestingModule ,
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule
+      ],
+      providers: [ PruebasService ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
   });
 
   beforeEach(() => {
-    testHostFixture = TestBed.createComponent(TestHostComponent);
-    testHostComponent = testHostFixture.componentInstance;
-  });
 
-  it('should show TEST INPUT', () => {
-    let examen : Examen =
-    {
+    TestBed.configureTestingModule({
+      declarations: [ ExamenComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [PruebasService],
+    });
+
+    pruebasService = TestBed.get(PruebasService);
+    fixture = TestBed.createComponent(ExamenComponent);
+    component = fixture.componentInstance;
+
+    // Add null check before accessing the object property
+    pruebasService.getPruebas().subscribe((pruebas: Examen[]) => {
+      misexamenes = pruebas;
+    });
+
+    component.miexamen = {
       "assignment_id": 4658842344357888,
       "focus": "Python",
       "rol": "Developer",
@@ -49,21 +70,50 @@ describe('ExamenComponent', () => {
                     ]
                 }
       ]
-    };
+    }
+    component.totalPreguntas = 1;
 
-    //testHostComponent.componentUnderTestComponent.pregunta = 1;
-    testHostFixture.detectChanges();
-    expect(1).toEqual(1);
   });
 
-  @Component({
-    selector: `host-component`,
-    template: `<component-under-test></component-under-test>`
-  })
-  class TestHostComponent {
-    @ViewChild(ExamenComponent)
-    public componentUnderTestComponent!: ExamenComponent;
-  }
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+
+  it('inicializar', () => {
+
+    expect(component.totalPreguntas ).toEqual(1);
+  });
+
+
+
+  it('call function traePregunta', () => {
+    component.traePregunta ();
+    expect(component.totalPreguntas ).toEqual(1);
+  });
+
+  it('traeRtas', () => {
+    component.traeRtas ();
+    expect(component.respuestas.length ).toEqual(0);
+  });
+
+  it('call function siguientePregunta', () => {
+    component.siguientePregunta();
+    expect(component.isSubmitted);
+
+  });
+
+  it('call function finalizar', () => {
+    component.finalizar();
+    expect(component.isSubmitted);
+
+  });
+
+  it('call function onSubmit', () => {
+    component.onSubmit();
+    expect(component.isSubmitted);
+
+  });
 
 
 
