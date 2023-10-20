@@ -1,49 +1,145 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { faker } from '@faker-js/faker';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { ListarPruebasComponent } from './listar-pruebas.component';
-import { HttpClientModule,HttpClient  } from '@angular/common/http';
+import { Examen, Respuesta } from '../prueba/prueba';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { PruebasService } from './pruebas.service';
-import { Prueba } from '../prueba/prueba';
 
 
 describe('ListarPruebasComponent', () => {
   let component: ListarPruebasComponent;
   let fixture: ComponentFixture<ListarPruebasComponent>;
-  let debug: DebugElement;
+  let pruebasService: PruebasService;
 
-
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       declarations: [ ListarPruebasComponent ],
-      providers: [ PruebasService ]
+      imports: [ RouterTestingModule ,
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule
+      ],
+      providers: [ PruebasService ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [ ListarPruebasComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [PruebasService],
+    });
+
+    pruebasService = TestBed.get(PruebasService);
     fixture = TestBed.createComponent(ListarPruebasComponent);
     component = fixture.componentInstance;
-    for(let i = 0; i < 10; i++) {
-      const miprueba = new Prueba(
-        faker.lorem.sentence(),
-        faker.lorem.sentence(),
-        faker.lorem.sentence(),
-        faker.lorem.sentence()
-      );
-      component.mispruebas.push(miprueba);
-    }
+
+    // Add null check before accessing the object property
+    pruebasService.getPruebas().subscribe((pruebas: Examen[]) => {
+      component.misexamenes = pruebas;
+    });
 
 
-    fixture.detectChanges();
-    debug = fixture.debugElement;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should initialize misexamenes to an empty array', () => {
+    expect(component.misexamenes).toEqual([]);
+  });
+
+  it('should add an examen to misexamenes when addExamen is called', () => {
+    const examen: Examen = {  "assignment_id": 4658842344357888,
+    "focus": "Python",
+    "rol": "Developer",
+    "type": "Technical",
+    "questions": [
+              {"correct_answer": ["d"
+                  ],
+                  "description": "What is the difference between a list and a tuple in Python?",
+                  "answers": [
+                      {
+                          "a": "A class is a template for creating objects, and an object is an instance of a class."
+                      },
+                      {
+                          "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+                      },
+                      {
+                          "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+                      },
+                      {
+                          "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+                      }
+                  ]
+              }
+    ] };
+    component.misexamenes.push(examen);
+    expect(component.misexamenes).toContain(examen);
+  });
+
+  it('should remove an examen from misexamenes when removeExamen is called', () => {
+    const examen: Examen = {  "assignment_id": 4658842344357888,
+    "focus": "Python",
+    "rol": "Developer",
+    "type": "Technical",
+    "questions": [
+              {"correct_answer": ["d"
+                  ],
+                  "description": "What is the difference between a list and a tuple in Python?",
+                  "answers": [
+                      {
+                          "a": "A class is a template for creating objects, and an object is an instance of a class."
+                      },
+                      {
+                          "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+                      },
+                      {
+                          "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+                      },
+                      {
+                          "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+                      }
+                  ]
+              }
+    ] };
+    component.misexamenes = [examen];
+    component.misexamenes.pop();
+    expect(component.misexamenes).not.toContain(examen);
+  });
+
+  it('call function getPruebasWs', () => {
+    component.getPruebasWs();
+    expect(component.misexamenes).toBeDefined();
+    expect(component.misexamenes).toEqual([]);
+  });
+
+  it('call function seleccionaExamen', () => {
+    component.seleccionaExamen(0);
+    expect(component.misexamenes).toBeDefined();
+    expect(component.codExamen ).toEqual(0);
+  });
+
+  it('call function examenFinalizado', () => {
+    let rta : Respuesta = { "assignment_id": 4658842344357888,
+    "pregunta": 0,
+    "rta": "d" };
+    let rtas: Respuesta[] = [rta];
+
+
+    component.examenFinalizado(rtas);
+    expect(component.misexamenes).toBeDefined();
+    expect(component.codExamen ).toEqual(0);
+  });
+
+
+
 });
