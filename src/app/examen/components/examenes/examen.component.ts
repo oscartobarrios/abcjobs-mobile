@@ -1,9 +1,5 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { Answer, Examen, Respuesta ,Question} from '../prueba/prueba';
-import { RouterLink } from '@angular/router';
-
-
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {  Examen, Respuesta ,Question} from '../prueba/prueba';
 
 
 @Component({
@@ -12,9 +8,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./examen.component.css']
 })
 
-export class ExamenComponent implements OnInit {
+export class ExamenComponent  {
 
-  misrtastexto: String[] =["uno","dos"];
+  misrtastexto: string[] =["uno","dos"];
   ex: number=0;
   pregunta: number=0;
   totalPreguntas: number=0;
@@ -28,39 +24,17 @@ export class ExamenComponent implements OnInit {
   @Output()
   public finalizarExamen: EventEmitter<Respuesta[]> = new EventEmitter();
 
-
-
-  //todos: Examen[]
   @Input()
   public miexamen!: Examen ;
 
-  constructor() {
-
-  }
-
-  ngOnInit() {
-
-  }
 
   traePregunta (){
     let retorno: Question[] ;
-    if ( this.miexamen !== undefined) {
-      //let examenlocal = this.miexamen[this.ex] ;
-      if ( this.miexamen !== undefined) {
-        const { questions:preguntas } =  this.miexamen
-        this.totalPreguntas = preguntas.length;
-        const { description:descripcion } = preguntas[this.pregunta]
-        this.traeRtas();
-        return descripcion
-      }
-      else{
-        return "No hay Mas Preguntas"
-      }
-    }
-    else{
-      return "FIN del examen"
-    }
-
+    const { questions:preguntas } =  this.miexamen
+    this.totalPreguntas = preguntas.length;
+    const { description:descripcion } = preguntas[this.pregunta]
+    this.traeRtas();
+    return descripcion
   }
 
   traeRtas (){

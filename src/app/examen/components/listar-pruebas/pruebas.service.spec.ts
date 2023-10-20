@@ -3,12 +3,14 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { PruebasService } from './pruebas.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('Service: Pruebas', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PruebasService]
+      providers: [PruebasService],
+      schemas: [NO_ERRORS_SCHEMA]
     });
   });
 
