@@ -22,7 +22,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   ],
   exports: [
     ExamenComponent,
-    ListarPruebasComponent,
     PruebaComponent
   ],
   imports: [

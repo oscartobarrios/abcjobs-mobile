@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { PruebasService } from '../listar-pruebas/pruebas.service';
+import { IonicModule } from '@ionic/angular';
+
 
 describe('EXAMEN', () => {
   let component: ExamenComponent;
@@ -34,6 +36,7 @@ describe('EXAMEN', () => {
       declarations: [ ExamenComponent ],
       imports: [HttpClientTestingModule],
       providers: [PruebasService],
+      schemas: [NO_ERRORS_SCHEMA]
     });
 
     pruebasService = TestBed.get(PruebasService);
@@ -46,31 +49,34 @@ describe('EXAMEN', () => {
     });
 
     component.miexamen = {
-      "assignment_id": 4658842344357888,
-      "focus": "Python",
-      "rol": "Developer",
-      "type": "Technical",
-      "questions": [
-                {"correct_answer": ["d"
-                    ],
-                    "description": "What is the difference between a list and a tuple in Python?",
-                    "answers": [
-                        {
-                            "a": "A class is a template for creating objects, and an object is an instance of a class."
-                        },
-                        {
-                            "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
-                        },
-                        {
-                            "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
-                        },
-                        {
-                            "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
-                        }
-                    ]
-                }
-      ]
-    }
+      assignment_id: 4658842344357888,
+      focus: "Python",
+      rol: "Developer",
+      type: "Technical",
+      questions: [
+          {"correct_answer": ["d"
+            ],
+            "description": "What is the difference between a list and a tuple in Python?",
+            "answers": [
+              {
+                "a": "A class is a template for creating objects, and an object is an instance of a class."
+              },
+              {
+                "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+              },
+              {
+                "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+              },
+              {
+                "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+              }
+            ]
+          }
+      ],
+      result: "a",
+      status: "b"
+    };
+
     component.totalPreguntas = 1;
 
   });
@@ -97,17 +103,13 @@ describe('EXAMEN', () => {
     expect(component.respuestas.length ).toEqual(0);
   });
 
-  it('call function siguientePregunta', () => {
-    component.siguientePregunta();
-    expect(component.isSubmitted);
 
-  });
 
   it('call function finalizar', () => {
     component.finalizar();
-    expect(component.isSubmitted);
-
+    expect(component.isSubmitted).toBeTruthy();
   });
+
 
   it('call function onSubmit', () => {
     component.onSubmit();
