@@ -22,7 +22,8 @@ export class PruebasService {
   }
 
   public guardarPregunta(codExamen:Number,rta: Respuesta) {
-    console.log(this.apiGuardarPregunta)
+    console.log("gaurdando Pregunta -- URL  "+ this.apiGuardarPregunta + codExamen)
+    console.log( JSON.stringify(rta) )
     return this.http.post(
       this.apiGuardarPregunta + codExamen,rta
     )

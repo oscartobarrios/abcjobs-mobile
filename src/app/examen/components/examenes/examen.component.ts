@@ -44,6 +44,8 @@ export class ExamenComponent  {
 
   guardarPregunta(codExamen:Number,rta: Respuesta) {
 
+    console.log("gaurdando examen--  "+ codExamen)
+    console.log(rta)
     let retorno = this.pruebasService.guardarPregunta(codExamen, rta).subscribe(datos => {
       console.log(datos)
     });
