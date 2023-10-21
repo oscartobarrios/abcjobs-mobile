@@ -58,59 +58,69 @@ describe('ListarPruebasComponent', () => {
   });
 
   it('should add an examen to misexamenes when addExamen is called', () => {
-    const examen: Examen = {  "assignment_id": 4658842344357888,
-    "focus": "Python",
-    "rol": "Developer",
-    "type": "Technical",
-    "questions": [
-              {"correct_answer": ["d"
-                  ],
-                  "description": "What is the difference between a list and a tuple in Python?",
-                  "answers": [
-                      {
-                          "a": "A class is a template for creating objects, and an object is an instance of a class."
-                      },
-                      {
-                          "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
-                      },
-                      {
-                          "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
-                      },
-                      {
-                          "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
-                      }
-                  ]
-              }
-    ] };
+    const examen: Examen = {
+      "assignment_id": 4658842344357888,
+      "focus": "Python",
+      "rol": "Developer",
+      "type": "Technical",
+      "questions": [
+        {
+          "correct_answer": ["d"
+          ],
+          "description": "What is the difference between a list and a tuple in Python?",
+          "answers": [
+            {
+              "a": "A class is a template for creating objects, and an object is an instance of a class."
+            },
+            {
+              "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+            },
+            {
+              "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+            },
+            {
+              "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+            }
+          ]
+        }
+      ],
+      result: '',
+      status: ''
+    };
     component.misexamenes.push(examen);
     expect(component.misexamenes).toContain(examen);
   });
 
   it('should remove an examen from misexamenes when removeExamen is called', () => {
-    const examen: Examen = {  "assignment_id": 4658842344357888,
-    "focus": "Python",
-    "rol": "Developer",
-    "type": "Technical",
-    "questions": [
-              {"correct_answer": ["d"
-                  ],
-                  "description": "What is the difference between a list and a tuple in Python?",
-                  "answers": [
-                      {
-                          "a": "A class is a template for creating objects, and an object is an instance of a class."
-                      },
-                      {
-                          "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
-                      },
-                      {
-                          "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
-                      },
-                      {
-                          "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
-                      }
-                  ]
-              }
-    ] };
+    const examen: Examen = {
+      "assignment_id": 4658842344357888,
+      "focus": "Python",
+      "rol": "Developer",
+      "type": "Technical",
+      "questions": [
+        {
+          "correct_answer": ["d"
+          ],
+          "description": "What is the difference between a list and a tuple in Python?",
+          "answers": [
+            {
+              "a": "A class is a template for creating objects, and an object is an instance of a class."
+            },
+            {
+              "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+            },
+            {
+              "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+            },
+            {
+              "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+            }
+          ]
+        }
+      ],
+      result: '',
+      status: ''
+    };
     component.misexamenes = [examen];
     component.misexamenes.pop();
     expect(component.misexamenes).not.toContain(examen);
@@ -129,9 +139,26 @@ describe('ListarPruebasComponent', () => {
   });
 
   it('call function examenFinalizado', () => {
-    let rta : Respuesta = { "assignment_id": 4658842344357888,
-    "pregunta": 0,
-    "rta": "d" };
+    let rta : Respuesta
+    rta = {
+      "selected_answer": ["d"],
+      "correct_answer": ["d"],
+      "description": "What is the difference between a list and a tuple in Python?",
+      "answers": [
+        {
+          "a": "A class is a template for creating objects, and an object is an instance of a class."
+        },
+        {
+          "b": "A class is a blueprint for creating objects, and an object is a physical manifestation of a class."
+        },
+        {
+          "c": "A class is a set of instructions for creating objects, and an object is a concrete representation of a class."
+        },
+        {
+          "d": "A class is a blueprint for creating objects, and an object is a logical manifestation of a class."
+        }
+      ]
+    };
     let rtas: Respuesta[] = [rta];
 
 
