@@ -16,7 +16,7 @@ export class ResultadosComponent implements OnInit {
 
   public misexamenes :  Array<Examen> = [];
   examenSeleccionado = false;
-  codExamen = 0;
+  codExamen = 1;
 
 
   constructor(private resultadoService : ResultadoService) {
