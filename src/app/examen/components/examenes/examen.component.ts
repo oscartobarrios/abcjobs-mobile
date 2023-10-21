@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {  Examen, Respuesta ,Question,Answer} from '../prueba/prueba';
 import { PruebasService } from '../listar-pruebas/pruebas.service';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-examen',

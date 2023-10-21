@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  Respuesta , Examen} from '../../examen/components/prueba/prueba';
 import { ResultadoService } from './resultado.service'
+import { IonicModule } from '@ionic/angular';
 
 
 

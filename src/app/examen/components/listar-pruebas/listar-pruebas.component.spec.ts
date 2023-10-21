@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { PruebasService } from './pruebas.service';
+import { IonicModule } from '@ionic/angular';
 
 
 describe('ListarPruebasComponent', () => {
@@ -34,6 +35,7 @@ describe('ListarPruebasComponent', () => {
       declarations: [ ListarPruebasComponent ],
       imports: [HttpClientTestingModule],
       providers: [PruebasService],
+      schemas: [NO_ERRORS_SCHEMA]
     });
 
     pruebasService = TestBed.get(PruebasService);

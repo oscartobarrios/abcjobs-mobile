@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Respuesta } from '../prueba/prueba';
 import { PruebasService } from './pruebas.service';
 import { Examen } from '../prueba/prueba';
+import { IonicModule } from '@ionic/angular';
 
 
 
