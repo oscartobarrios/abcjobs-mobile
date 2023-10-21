@@ -4,10 +4,13 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://gist.githubusercontent.com/josejbocanegra/9bc286433e85ad2fdd3b4d3b2a1998f8/raw/ab432ff4f10f767a8c997a8e15012cd7d908dd62/',
+  baseUrl:'http://34.171.225.63.nip.io/assignments',
   urlPerfiles: 'http://34.171.225.63.nip.io/users/profiles' ,
-  urlPruebas: 'http://34.171.225.63.nip.io/assignments' ,
+  urlPruebas: 'http://34.171.225.63.nip.io/assignments?status=in_progress&to_do' ,
   urlUsuarios: 'http://34.171.225.63.nip.io/users' ,
+  urlResultados: 'http://34.171.225.63.nip.io/assignments?status=finished' ,
+  urlGuardarPregunta: 'http://34.171.225.63.nip.io/assignments/',
+  urlFinalizarprueba:'http://34.171.225.63.nip.io/assignments/questionnaire/'
 };
 
 /*

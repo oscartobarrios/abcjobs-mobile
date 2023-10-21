@@ -40,7 +40,6 @@ export class ListarPruebasComponent  {
     console.log(rta)
     this.examenSeleccionado = false;
     this.codExamen = 0
-
   }
 
 
