@@ -23,6 +23,12 @@ export class ResultadosComponent implements OnInit {
     this.getPruebasWs()
   }
 
+  resultadoExamen(miexamen: Examen)
+  {
+
+    return parseInt(miexamen.result)
+
+  }
 
   getPruebasWs() {
     this.resultadoService.getPruebas().subscribe(datos => {

@@ -4,6 +4,7 @@ import { ExamenComponent } from './examen/components/examenes/examen.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListarPruebasComponent } from './examen/components/listar-pruebas/listar-pruebas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { ResultadosComponent } from './resultados/components/resultados.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'examen/:id',
     component:ExamenComponent
+  },
+  {
+    path: 'resultados',
+    component:ResultadosComponent
   }
 
 

@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ExamenModule } from './examen/examen.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResultadosModule } from './resultados/resultados.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ExamenModule,
+
     IonicModule.forRoot(),
     BrowserAnimationsModule
   ],
