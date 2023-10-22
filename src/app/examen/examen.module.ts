@@ -21,14 +21,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     PruebaComponent
   ],
   exports: [
-    ExamenComponent,
-    PruebaComponent
+    ExamenComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     AppRoutingModule,
-    FormsModule,
     FormsModule,
     MatInputModule,
     MatButtonModule,
