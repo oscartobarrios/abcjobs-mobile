@@ -21,11 +21,11 @@
 
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-button  (click)="finalizar()"  *ngIf="pregunta+1 >= totalPreguntas" >Finalizar</ion-button>
+        <ion-button  id="finalizar" (click)="finalizar()"  *ngIf="pregunta+1 >= totalPreguntas" >Finalizar</ion-button>
       </ion-buttons>
 
       <ion-buttons slot="end">
-        <ion-button type="submit" [disabled]="selectedOption === ''" *ngIf="pregunta+1 < totalPreguntas" >Siguiente</ion-button>
+        <ion-button type="submit" id="siguiente" [disabled]="selectedOption === ''" *ngIf="pregunta+1 < totalPreguntas" >Siguiente</ion-button>
       </ion-buttons>
     </ion-toolbar>
 
