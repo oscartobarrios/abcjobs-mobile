@@ -1,4 +1,65 @@
 <app-encabezados></app-encabezados>
-<p>
-  agendar works!
-</p>
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agendar Cita</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-select fill="outline"
+    formControlName="empresa"
+    shape="round"
+    label="Empresa:"
+    labelPlacement="floating"></ion-select>
+
+    <ion-select fill="outline"
+    formControlName="oferta"
+    shape="round"
+    label="oferta:"
+    labelPlacement="floating"></ion-select>
+
+    <ion-select fill="outline"
+    formControlName="candidato"
+    shape="round"
+    label="candidato:"
+    labelPlacement="floating"></ion-select>
+
+    <ion-input fill="outline"
+    formControlName="link"
+    shape="round"
+    label="Link Reunion:"
+    type="url"
+    labelPlacement="floating"></ion-input>
+
+    <ion-input fill="outline"
+    formControlName="descripcion"
+    shape="round"
+    label="Descripcion:"
+    labelPlacement="floating"></ion-input>
+
+    <ion-datetime fill="outline"
+    formControlName="fecha"
+    shape="round"
+    label="Fecha:"
+    labelPlacement="floating"></ion-datetime>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block"
+          >Submit</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
+
+
+
+
+
+

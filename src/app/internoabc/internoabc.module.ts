@@ -6,12 +6,12 @@ import { IonicModule } from '@ionic/angular';
 import { ProgramarComponent } from './components/programar/programar.component';
 import { AgendarComponent } from './components/agendar/agendar.component';
 import { AppRoutingModule } from "../app-routing.module";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EntrevistasComponent } from './components/entrevistas/entrevistas.component';
 
 @NgModule({
   imports: [
-    CommonModule,IonicModule,AppRoutingModule,FormsModule,
+    CommonModule,IonicModule,AppRoutingModule,ReactiveFormsModule,FormsModule,
   ],
   declarations: [InternoabcComponent,EncabezadosComponent, ProgramarComponent,AgendarComponent, EntrevistasComponent]
 })
