@@ -144,3 +144,100 @@ export class Experiencum {
     this.cargo = cargo
   }
 }
+
+export type Companys = Company[]
+
+export class Company {
+  company_id: number
+  country: string
+  created_date: string
+  document_number: string
+  document_type: string
+  email: string
+  last_modified: string
+  name: string
+  phone_number: string
+  constructor(company_id: number, country: string, created_date: string, document_number: string, document_type: string, email: string, last_modified: string, name: string, phone_number: string) {
+    this.company_id = company_id
+    this.country = country
+    this.created_date = created_date
+    this.document_number = document_number
+    this.document_type = document_type
+    this.email = email
+    this.last_modified = last_modified
+    this.name = name
+    this.phone_number = phone_number
+  }
+
+}
+
+export type Ofertas = Oferta[]
+
+export class Oferta {
+  company_id: string
+  created_date: string
+  description: string
+  end_date: string
+  last_modified: string
+  name: string
+  offer_id: number
+  start_date: string
+  constructor(company_id: string, created_date: string, description: string, end_date: string, last_modified: string, name: string, offer_id: number, start_date: string) {
+    this.company_id = company_id
+    this.created_date = created_date
+    this.description = description
+    this.end_date = end_date
+    this.last_modified = last_modified
+    this.name = name
+    this.offer_id = offer_id
+    this.start_date = start_date
+  }
+}
+
+export class Entrevista {
+  id_company: string
+  candidates: string[]
+  id_offer: string
+  link: string
+  date: string
+  description: string
+  id?: number
+  candidates_details?: CandidatesDetail[]
+  result?: string
+  constructor(
+    id_company: string,
+    candidates: string[],
+    id_offer: string,
+    link: string,
+    date: string,
+    description: string,
+
+  ) {
+    this.candidates = candidates
+    this.date = date
+    this.description = description
+    this.id_company = id_company
+    this.id_offer = id_offer
+    this.link = link
+
+  }
+
+}
+
+export class CandidatesDetail {
+  candidate: Candidate
+  company: Company
+  offer: Oferta
+  constructor(candidate: Candidate, company: Company, offer: Oferta) {
+    this.candidate = candidate
+    this.company = company
+    this.offer = offer
+  }
+
+}
+
+
+
+
+
+

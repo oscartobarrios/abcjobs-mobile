@@ -10,22 +10,35 @@
   <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
 
     <ion-select fill="outline"
+    (ionChange)=seleccionaEmpresa()
     formControlName="empresa"
     shape="round"
     label="Empresa:"
-    labelPlacement="floating"></ion-select>
+    labelPlacement="floating">
+    <ion-select-option  *ngFor="let c of listaEmpresas ; let i =index" value="{{c.company_id}}">{{c.name}}</ion-select-option>
 
-    <ion-select fill="outline"
+  </ion-select>
+
+  <ion-select fill="outline"
     formControlName="oferta"
+    (ionChange)=seleccionaOferta()
     shape="round"
     label="oferta:"
-    labelPlacement="floating"></ion-select>
+    labelPlacement="floating">
+
+    <ion-select-option  *ngFor="let c of listaOfertas ; let i =index" value="{{c.offer_id}}">{{c.name}}</ion-select-option>
+
+  </ion-select>
 
     <ion-select fill="outline"
     formControlName="candidato"
+    (ionChange)=seleccionaCandidato()
     shape="round"
     label="candidato:"
-    labelPlacement="floating"></ion-select>
+    labelPlacement="floating">
+    <ion-select-option  *ngFor="let c of listaPreentrevistas ; let i =index" value="{{c.pre_interview.id_candidate}}">{{c.candidate.Nombre}} {{c.candidate.apellido}}</ion-select-option>
+
+  </ion-select>
 
     <ion-input fill="outline"
     formControlName="link"
@@ -40,12 +53,7 @@
     label="Descripcion:"
     labelPlacement="floating"></ion-input>
 
-    <ion-datetime fill="outline"
-    formControlName="fecha"
-    shape="round"
-    label="Fecha:"
-    labelPlacement="floating"></ion-datetime>
-
+    <ion-datetime formControlName="fecha" minuteValues="0,15,30,45"></ion-datetime>
 
     <ion-row>
       <ion-col>
