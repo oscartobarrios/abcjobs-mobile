@@ -8,6 +8,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { PruebasService } from '../listar-pruebas/pruebas.service';
 import { IonicModule } from '@ionic/angular';
+import { EncabezadosComponent } from '../encabezados/encabezados.component';
 
 
 describe('EXAMEN', () => {

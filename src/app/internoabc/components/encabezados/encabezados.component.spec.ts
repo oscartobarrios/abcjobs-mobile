@@ -2,8 +2,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { EncabezadosComponent } from './encabezados.component';
+import { IonicModule } from '@ionic/angular';
 
 describe('EncabezadosComponent', () => {
   let component: EncabezadosComponent;
@@ -11,7 +12,8 @@ describe('EncabezadosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EncabezadosComponent ]
+      declarations: [ EncabezadosComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

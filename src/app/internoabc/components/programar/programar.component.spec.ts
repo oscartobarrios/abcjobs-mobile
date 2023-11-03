@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ProgramarComponent } from './programar.component';
+import { EncabezadosComponent } from '../encabezados/encabezados.component';
 
 describe('ProgramarComponent', () => {
   let component: ProgramarComponent;
@@ -8,7 +9,8 @@ describe('ProgramarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgramarComponent ]
+      declarations: [ ProgramarComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
 

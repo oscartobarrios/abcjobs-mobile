@@ -25,7 +25,8 @@ import { EncabezadosComponent } from './components/encabezados/encabezados.compo
     ResultadosComponent,
     ListarPruebasComponent,
     PruebaComponent,
-    ExamenComponent
+    ExamenComponent,
+    EncabezadosComponent
   ],
   declarations: [PersonaComponent,
     ListarPruebasComponent,
