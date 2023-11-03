@@ -9,6 +9,7 @@ import { ListarPruebasComponent } from "./components/listar-pruebas/listar-prueb
 import { PruebaComponent } from "./components/prueba/prueba.component";
 import { PersonaComponent } from './persona.component';
 import { RouterModule } from '@angular/router';
+import { EncabezadosComponent } from './components/encabezados/encabezados.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { RouterModule } from '@angular/router';
     ListarPruebasComponent,
     PruebaComponent,
     ExamenComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    EncabezadosComponent
   ]
 })
 export class PersonaModule { }
