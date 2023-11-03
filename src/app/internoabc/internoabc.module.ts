@@ -8,10 +8,14 @@ import { AgendarComponent } from './components/agendar/agendar.component';
 import { AppRoutingModule } from "../app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EntrevistasComponent } from './components/entrevistas/entrevistas.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule,IonicModule,AppRoutingModule,ReactiveFormsModule,FormsModule,
+    CommonModule,IonicModule,AppRoutingModule,ReactiveFormsModule,FormsModule,RouterModule
+  ],
+  exports: [
+    InternoabcComponent,EncabezadosComponent, ProgramarComponent,AgendarComponent, EntrevistasComponent
   ],
   declarations: [InternoabcComponent,EncabezadosComponent, ProgramarComponent,AgendarComponent, EntrevistasComponent]
 })

@@ -1,73 +1,93 @@
 <app-encabezados></app-encabezados>
 
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Agendar Cita</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Agendar Entrevistas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
 
-    <ion-select fill="outline"
-    (ionChange)=seleccionaEmpresa()
-    formControlName="empresa"
-    shape="round"
-    label="Empresa:"
-    labelPlacement="floating">
-    <ion-select-option  *ngFor="let c of listaEmpresas ; let i =index" value="{{c.company_id}}">{{c.name}}</ion-select-option>
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+      <ion-row class="ion-padding-bottom">
+        <ion-select fill="outline"
+          (ionChange)=seleccionaEmpresa()
+          formControlName="empresa"
+          shape="round"
+          label="Empresa:"
+          labelPlacement="floating">
+          <ion-select-option  *ngFor="let c of listaEmpresas ; let i =index" value="{{c.company_id}}">{{c.name}}</ion-select-option>
+        </ion-select>
+      </ion-row>
 
-  </ion-select>
+      <ion-row class="ion-padding-bottom">
+        <ion-select fill="outline"
+          formControlName="oferta"
+          (ionChange)=seleccionaOferta()
+          shape="round"
+          label="oferta:"
+          labelPlacement="floating">
+          <ion-select-option  *ngFor="let c of listaOfertas ; let i =index" value="{{c.offer_id}}">{{c.name}}</ion-select-option>
+        </ion-select>
+      </ion-row>
 
-  <ion-select fill="outline"
-    formControlName="oferta"
-    (ionChange)=seleccionaOferta()
-    shape="round"
-    label="oferta:"
-    labelPlacement="floating">
+      <ion-row class="ion-padding-bottom">
+        <ion-select fill="outline"
+          formControlName="candidato"
+          (ionChange)=seleccionaCandidato()
+          shape="round"
+          label="candidato:"
+          labelPlacement="floating">
+          <ion-select-option  *ngFor="let c of listaPreentrevistas ; let i =index" value="{{c.pre_interview.id_candidate}}">{{c.candidate.Nombre}} {{c.candidate.apellido}}</ion-select-option>
+        </ion-select>
+      </ion-row>
 
-    <ion-select-option  *ngFor="let c of listaOfertas ; let i =index" value="{{c.offer_id}}">{{c.name}}</ion-select-option>
+      <ion-row class="ion-padding-bottom">
+        <ion-input fill="outline"
+          formControlName="link"
+          shape="round"
+          label="Link Reunion:"
+          type="url"
+          labelPlacement="floating">
+        </ion-input>
+      </ion-row>
 
-  </ion-select>
+      <ion-row class="ion-padding-bottom">
+        <ion-input fill="outline"
+        formControlName="descripcion"
+        shape="round"
+        label="Descripcion:"
+        labelPlacement="floating"></ion-input>
+      </ion-row>
 
-    <ion-select fill="outline"
-    formControlName="candidato"
-    (ionChange)=seleccionaCandidato()
-    shape="round"
-    label="candidato:"
-    labelPlacement="floating">
-    <ion-select-option  *ngFor="let c of listaPreentrevistas ; let i =index" value="{{c.pre_interview.id_candidate}}">{{c.candidate.Nombre}} {{c.candidate.apellido}}</ion-select-option>
+      <ion-row class="ion-justify-content-center ion-padding-bottom">
 
-  </ion-select>
+        <ion-datetime-button
 
-    <ion-input fill="outline"
-    formControlName="link"
-    shape="round"
-    label="Link Reunion:"
-    type="url"
-    labelPlacement="floating"></ion-input>
+        datetime="datetime"
+        formControlName="fecha"></ion-datetime-button>
 
-    <ion-input fill="outline"
-    formControlName="descripcion"
-    shape="round"
-    label="Descripcion:"
-    labelPlacement="floating"></ion-input>
-
-    <ion-datetime formControlName="fecha" minuteValues="0,15,30,45"></ion-datetime>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="primary" expand="block"
-          >Submit</ion-button
-        >
-      </ion-col>
-    </ion-row>
-  </form>
-</ion-content>
-
-
-
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block"
+            >Submit</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
 
 
+  </ion-content>
+</div>
 
 

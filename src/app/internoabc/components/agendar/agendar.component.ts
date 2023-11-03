@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 import { Company, Oferta, PreEntrevista ,Candidate,Entrevista} from '../../model/preentrevista';
 import { PreentrevistaService } from '../../model/preentrevista.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agendar',
@@ -72,8 +73,9 @@ export class AgendarComponent implements OnInit {
 
 
 
-  constructor(public formBuilder: FormBuilder,private resultado : PreentrevistaService) {
+  constructor(public formBuilder: FormBuilder,private resultado : PreentrevistaService, private router : Router) {
     this.getEmpresas()
+
 
   }
   ngOnInit() {
@@ -94,6 +96,8 @@ export class AgendarComponent implements OnInit {
 
       this.resultado.crearEntrevista(this.entrevista).subscribe(datos => {
         console.log( "GUardado"+datos);
+        this.ionicForm.reset();
+        this.router.navigate(['internoabc/entrevistas']);
 
       });
 

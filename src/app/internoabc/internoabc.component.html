@@ -1,17 +1,17 @@
 <app-encabezados></app-encabezados>
 
-
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>ABC Jobs </ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content class="ion-padding">
 
-  <ion-content>
+
     <ion-card>
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       <ion-card-header>
@@ -30,35 +30,35 @@
       <ion-card-content>
         <ion-list id="mimenu">
           <ion-item>
-            <ion-thumbnail slot="start" routerLink="agendar" id="agendarentrevista">
+            <ion-thumbnail slot="start" routerLink="/internoabc/agendar" id="agendarentrevista">
               <img alt="datos" src="./assets/application_2245126.png" />
             </ion-thumbnail>
             <ion-label>Agendar Entrevistas</ion-label>
           </ion-item>
 
           <ion-item>
-            <ion-thumbnail slot="start" routerLink="programar" id="programarpruebas">
+            <ion-thumbnail slot="start" routerLink="/internoabc/programar" id="programarpruebas">
               <img alt="experiencia" src="./assets/work-from-home.png" />
             </ion-thumbnail>
             <ion-label>Programar Pruebas</ion-label>
           </ion-item>
 
           <ion-item>
-            <ion-thumbnail slot="start" routerLink="resultados" id="consultarpruebas">
+            <ion-thumbnail slot="start" routerLink="/internoabc/resultados" id="consultarpruebas">
               <img alt="academica" src="./assets/education_3976625.png" />
             </ion-thumbnail>
             <ion-label>Consultar Pruebas</ion-label>
           </ion-item>
 
-          <ion-item lines="none" routerLink="registrar" id="registrarresultados">
-            <ion-thumbnail slot="start">
+          <ion-item >
+            <ion-thumbnail slot="start" routerLink="/internoabc/registrar" id="registrarresultados">
               <img alt="tecnica" src="./assets/working_4727424.png" />
             </ion-thumbnail>
             <ion-label>Registrar Resultados</ion-label>
           </ion-item>
 
           <ion-item>
-            <ion-thumbnail slot="start" routerLink="entrevistas" id="consultaentrevistas">
+            <ion-thumbnail slot="start" routerLink="/internoabc/entrevistas" id="consultaentrevistas">
               <img alt="academica" src="./assets/education_3976625.png" />
             </ion-thumbnail>
             <ion-label>Consultar Entrevistas</ion-label>
@@ -68,7 +68,8 @@
       </ion-card-content>
     </ion-card>
 
-  </ion-content>
 
+
+  </ion-content>
 </div>
 

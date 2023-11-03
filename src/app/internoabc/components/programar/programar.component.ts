@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./programar.component.css']
 })
 export class ProgramarComponent implements OnInit {
-
+  backButtonText = 'Go Back';
   constructor() { }
 
   ngOnInit(): void {

@@ -1,27 +1,21 @@
 <ion-menu contentId="main-content">
   <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Menu Principal</ion-title>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-list>
-      <ion-item routerLink="/internoabc">Inicio</ion-item>
-      <ion-item routerLink="/prueba">Procesos</ion-item>
-      <ion-item routerLink="/hv">Hoja de vida</ion-item>
+    <ion-list class="list-group">
+      <ion-item class="list-group-item" routerLink="/internoabc/" routerLinkActive="active">Inicio</ion-item>
+      <ion-item class="list-group-item" routerLink="/internoabc/agendar" routerLinkActive="active">Agendar Entrevistas</ion-item>
+      <ion-item  class="list-group-item" routerLink="/internoabc/programar" routerLinkActive="active">Programar Pruebas</ion-item>
+      <ion-item  class="list-group-item" routerLink="/internoabc/resultados" routerLinkActive="active">Consultar Pruebas</ion-item>
+      <ion-item  class="list-group-item" routerLink="/internoabc/registrar" routerLinkActive="active">Registrar Pruebas</ion-item>
+      <ion-item  class="list-group-item" routerLink="/internoabc/entrevistas" routerLinkActive="active">Consultar Entrevistas</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
 
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>ABC Jobs </ion-title>
-    </ion-toolbar>
-  </ion-header>
 
 
 

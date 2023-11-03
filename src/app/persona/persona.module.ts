@@ -8,6 +8,7 @@ import { ExamenComponent } from "./components/examenes/examen.component"
 import { ListarPruebasComponent } from "./components/listar-pruebas/listar-pruebas.component";
 import { PruebaComponent } from "./components/prueba/prueba.component";
 import { PersonaComponent } from './persona.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,10 +16,15 @@ import { PersonaComponent } from './persona.component';
     IonicModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule
 
   ],
   exports: [
-    PersonaComponent
+    PersonaComponent,
+    ResultadosComponent,
+    ListarPruebasComponent,
+    PruebaComponent,
+    ExamenComponent
   ],
   declarations: [PersonaComponent,
     ListarPruebasComponent,
